@@ -35,6 +35,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var hSampleClassWhichWillBeFieldInjectedInMainActivity:
             SampleClassWhichWillBeFieldInjectedInMainActivity
 
+    @Inject
+    lateinit var hInterface: HInterface
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         hActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
@@ -52,6 +55,8 @@ class MainActivity : AppCompatActivity() {
                 hSampleClassWhichWillBeFieldInjectedInMainActivity.hTestIfConstructorInjectionIsCompleted()
             }"
         )
+
+        Timber.d("Activity component injection ${hInterface.hTestInterface()}")
     }
 
 
