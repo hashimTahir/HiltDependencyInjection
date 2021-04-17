@@ -10,6 +10,8 @@ import com.hashim.hiltdependencyinjection.databinding.ActivityMainBinding
 import com.hashim.hiltdependencyinjection.fieldconstructorinjection.SampleClassWhichWillBeFieldInjectedInMainActivity
 import com.hashim.hiltdependencyinjection.multibindingsofsametype.MultipleBindingsModule
 import com.hashim.hiltdependencyinjection.multibindingsofsametype.MultipleBindingsOfSameType
+import com.hashim.hiltdependencyinjection.predefinedqualifiers.SomeClassThatRequiresActivityContext
+import com.hashim.hiltdependencyinjection.predefinedqualifiers.SomeClassThatRequiresApplicationContext
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 import javax.inject.Inject
@@ -54,6 +56,12 @@ class MainActivity : AppCompatActivity() {
     @MultipleBindingsModule.TypeBExample
     lateinit var hMultipleBindingsOfSameTypeB: MultipleBindingsOfSameType
 
+    @Inject
+    lateinit var hSomeClassThatRequiresApplicationContext: SomeClassThatRequiresApplicationContext
+
+    @Inject
+    lateinit var hSomeClassThatRequiresActivityContext: SomeClassThatRequiresActivityContext
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         hActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
@@ -80,6 +88,11 @@ class MainActivity : AppCompatActivity() {
 
         Timber.d("Multiple Instance injected $hMultipleBindingsOfSameTypeA")
         Timber.d("Multiple Instance injected $hMultipleBindingsOfSameTypeB")
+
+
+        Timber.d("ApplicationContext usage ${hSomeClassThatRequiresApplicationContext.hTest()}")
+
+        Timber.d("ActivityContext usage ${hSomeClassThatRequiresActivityContext.hTest()}")
     }
 
 

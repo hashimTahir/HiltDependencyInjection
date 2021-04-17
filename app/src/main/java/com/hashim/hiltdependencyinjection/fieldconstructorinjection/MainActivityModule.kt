@@ -2,7 +2,7 @@
  * Copyright (c) 2021/  4/ 17.  Created by Hashim Tahir
  */
 
-package com.hashim.hiltdependencyinjection.di
+package com.hashim.hiltdependencyinjection.fieldconstructorinjection
 
 import com.hashim.hiltdependencyinjection.HInterface
 import com.hashim.hiltdependencyinjection.hInterfaceImpl
