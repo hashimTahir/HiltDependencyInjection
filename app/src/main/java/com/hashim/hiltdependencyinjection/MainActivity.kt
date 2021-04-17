@@ -38,6 +38,8 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var hInterface: HInterface
 
+    @Inject
+    lateinit var hRetroService: RetroService
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         hActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
@@ -57,6 +59,9 @@ class MainActivity : AppCompatActivity() {
         )
 
         Timber.d("Activity component injection ${hInterface.hTestInterface()}")
+
+
+        Timber.d("Retrofit instance injected ${hRetroService}")
     }
 
 
