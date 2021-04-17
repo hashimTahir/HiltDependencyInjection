@@ -7,7 +7,7 @@ package com.hashim.hiltdependencyinjection
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.hashim.hiltdependencyinjection.databinding.ActivityMainBinding
-import com.hashim.hiltdependencyinjection.fieldinjection.SampleClassWhichWillBeFieldInjectedInMainActivity
+import com.hashim.hiltdependencyinjection.fieldconstructorinjection.SampleClassWhichWillBeFieldInjectedInMainActivity
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 import javax.inject.Inject
@@ -43,7 +43,13 @@ class MainActivity : AppCompatActivity() {
 
         Timber.d(
             "This is Field injection example ${
-                hSampleClassWhichWillBeFieldInjectedInMainActivity.hTestIfInjectionIsCompleted()
+                hSampleClassWhichWillBeFieldInjectedInMainActivity.hTestIfFieldInjectionIsCompleted()
+            }"
+        )
+
+        Timber.d(
+            "This is Constructor injection example ${
+                hSampleClassWhichWillBeFieldInjectedInMainActivity.hTestIfConstructorInjectionIsCompleted()
             }"
         )
     }
