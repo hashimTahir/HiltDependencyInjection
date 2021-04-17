@@ -21,9 +21,6 @@ A Hilt module is a class that is annotated with @Module. Like a Dagger module, i
 * one must annotate Hilt modules with @InstallIn to tell Hilt which Android class
 * each module will be used or installed in.
 *
-* ActivityComponent tells hilt to inject in activity. This annotation means that all
-* of the dependencies in AppModule are available in all of the app's activities.
-*
 * SingletonComponent are app level dependencises and exist as long as the app is alive.
 *
 * */

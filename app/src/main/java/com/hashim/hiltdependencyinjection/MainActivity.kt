@@ -8,6 +8,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.hashim.hiltdependencyinjection.databinding.ActivityMainBinding
 import com.hashim.hiltdependencyinjection.fieldconstructorinjection.SampleClassWhichWillBeFieldInjectedInMainActivity
+import com.hashim.hiltdependencyinjection.multibindingsofsametype.MultipleBindingsModule
+import com.hashim.hiltdependencyinjection.multibindingsofsametype.MultipleBindingsOfSameType
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 import javax.inject.Inject
@@ -40,6 +42,18 @@ class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var hRetroService: RetroService
+
+
+    /*When Injection Use Qualifier. which tells hilt what type should be used.*/
+    @Inject
+    @MultipleBindingsModule.TypeAExapmple
+    lateinit var hMultipleBindingsOfSameTypeA: MultipleBindingsOfSameType
+
+
+    @Inject
+    @MultipleBindingsModule.TypeBExample
+    lateinit var hMultipleBindingsOfSameTypeB: MultipleBindingsOfSameType
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         hActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
@@ -62,6 +76,10 @@ class MainActivity : AppCompatActivity() {
 
 
         Timber.d("Retrofit instance injected ${hRetroService}")
+
+
+        Timber.d("Multiple Instance injected $hMultipleBindingsOfSameTypeA")
+        Timber.d("Multiple Instance injected $hMultipleBindingsOfSameTypeB")
     }
 
 
