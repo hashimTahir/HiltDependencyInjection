@@ -5,7 +5,6 @@
 package com.hashim.hiltdependencyinjection
 
 import android.app.Application
-import androidx.viewbinding.BuildConfig
 import com.hashim.hiltdependencyinjection.Constants.hTag
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
