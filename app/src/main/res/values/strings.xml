@@ -1,0 +1,7 @@
+<!--
+  ~ Copyright (c) 2021/  4/ 17.  Created by Hashim Tahir
+  -->
+
+<resources>
+    <string name="app_name">HiltDependencyInjection</string>
+</resources>
