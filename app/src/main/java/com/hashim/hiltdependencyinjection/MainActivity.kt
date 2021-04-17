@@ -4,12 +4,16 @@
 
 package com.hashim.hiltdependencyinjection
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.hashim.hiltdependencyinjection.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    lateinit var hActivityMainBinding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        hActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(hActivityMainBinding.root)
     }
 }
