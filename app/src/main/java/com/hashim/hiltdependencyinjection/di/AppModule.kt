@@ -25,5 +25,4 @@ A Hilt module is a class that is annotated with @Module. Like a Dagger module, i
 * */
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModule {
-}
+object AppModule
