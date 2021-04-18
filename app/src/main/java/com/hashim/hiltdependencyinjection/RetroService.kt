@@ -4,5 +4,4 @@
 
 package com.hashim.hiltdependencyinjection
 
-interface RetroService {
-}
+interface RetroService

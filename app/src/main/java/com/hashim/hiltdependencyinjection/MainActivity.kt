@@ -6,12 +6,14 @@ package com.hashim.hiltdependencyinjection
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.hashim.hiltdependencyinjection.databinding.ActivityMainBinding
 import com.hashim.hiltdependencyinjection.fieldconstructorinjection.SampleClassWhichWillBeFieldInjectedInMainActivity
 import com.hashim.hiltdependencyinjection.multibindingsofsametype.MultipleBindingsModule
 import com.hashim.hiltdependencyinjection.multibindingsofsametype.MultipleBindingsOfSameType
 import com.hashim.hiltdependencyinjection.predefinedqualifiers.SomeClassThatRequiresActivityContext
 import com.hashim.hiltdependencyinjection.predefinedqualifiers.SomeClassThatRequiresApplicationContext
+import com.hashim.hiltdependencyinjection.viewmodelinjection.MainviewModel
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 import javax.inject.Inject
@@ -34,6 +36,8 @@ class MainActivity : AppCompatActivity() {
     *Fields injected by Hilt cannot be private. Attempting to inject a private field with
     *  Hilt results in a compilation error.
     * */
+
+    private lateinit var hMainviewModel: MainviewModel
 
     @Inject
     lateinit var hSampleClassWhichWillBeFieldInjectedInMainActivity:
@@ -67,7 +71,10 @@ class MainActivity : AppCompatActivity() {
         hActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(hActivityMainBinding.root)
 
+        hMainviewModel = ViewModelProvider(this).get(MainviewModel::class.java)
 
+
+        hMainviewModel.hTest()
         Timber.d(
             "This is Field injection example ${
                 hSampleClassWhichWillBeFieldInjectedInMainActivity.hTestIfFieldInjectionIsCompleted()

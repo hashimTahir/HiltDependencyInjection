@@ -4,5 +4,4 @@
 
 package com.hashim.hiltdependencyinjection.multibindingsofsametype
 
-class TypeB {
-}
+class TypeB

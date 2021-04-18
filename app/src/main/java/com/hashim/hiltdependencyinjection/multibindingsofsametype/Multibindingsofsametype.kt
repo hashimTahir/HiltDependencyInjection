@@ -10,6 +10,7 @@ class MultipleBindingsOfSameType {
     constructor(aType: TypeA?) {
         Timber.d("Type a Constructor used")
     }
+
     constructor(bType: TypeB?) {
         Timber.d("Type b Constructor used")
 

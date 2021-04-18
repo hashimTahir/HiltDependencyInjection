@@ -66,4 +66,6 @@ object MultipleBindingsModule {
     @Retention(AnnotationRetention.BINARY)
     annotation class TypeBExample
 
+
+
 }
